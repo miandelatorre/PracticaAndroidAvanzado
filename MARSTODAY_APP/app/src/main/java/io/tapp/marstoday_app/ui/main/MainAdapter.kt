@@ -35,7 +35,7 @@ class MainAdapter(private val context: Context, private val callbackItemClick: C
                 .into(holder.view.imageCardView)
 
             holder.view.cardView.setOnClickListener {
-                callbackItemClick.onItemClick()
+                callbackItemClick.onItemClick(marstoday!!)
             }
         }
 

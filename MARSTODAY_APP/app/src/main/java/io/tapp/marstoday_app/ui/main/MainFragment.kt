@@ -70,9 +70,17 @@ class MainFragment : Fragment(), CallbackItemClick {
         })
     }
 
-    override fun onItemClick() {
+    override fun onItemClick(photosItem: PhotosItem) {
         activity?.let { fragment ->
             Intent(fragment, DetailActivity::class.java).apply {
+
+                arguments = Bundle().apply {
+                    putSerializable("OBJECT_MARSTODAY", photosItem)
+                }
+
+                arguments?.let { args -> putExtras(args) }
+
+                putExtra("EXTRA_MARSTODAY", "LOCAL_MARSTODAY")
                 startActivity(this)
             }
         }

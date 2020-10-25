@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
 
             Intent(this, DetailActivity::class.java).apply {
+                putExtra("EXTRA_MARSTODAY", "SERVER_MARSTODAY")
                 startActivity(this)
             }
 
