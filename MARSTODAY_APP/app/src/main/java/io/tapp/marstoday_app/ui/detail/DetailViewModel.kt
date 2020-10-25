@@ -1,12 +1,17 @@
 package io.tapp.marstoday_app.ui.detail
 
+import android.app.Activity
 import android.app.Application
 import android.content.Context
+import android.widget.ImageView
 import androidx.lifecycle.ViewModel
+import com.bumptech.glide.Glide
 import io.tapp.marstoday_app.repository.db.MarstodayRoomDatabase
 import io.tapp.marstoday_app.repository.model.MarstodayResponse
+import io.tapp.marstoday_app.repository.model.PhotosItem
 import io.tapp.marstoday_app.repository.network.MarstodayApi
 import io.tapp.marstoday_app.repository.network.MarstodayService
+import kotlinx.android.synthetic.main.activity_detail.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,5 +44,9 @@ class DetailViewModel(private val context: Application) : ViewModel() {
         marstodayResponse.photos?.get(itemSelected.toInt())?.let {
             MarstodayRoomDatabase.getInstance(context).marstodayDao().insertMarstoday(it)
         };
+    }
+
+    fun deleteMarstoday(photosItem: PhotosItem) {
+        MarstodayRoomDatabase.getInstance(context).marstodayDao().deleteMarstoday(photosItem)
     }
 }

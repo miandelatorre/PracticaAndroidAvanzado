@@ -1,10 +1,7 @@
 package io.tapp.marstoday_app.repository.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import io.tapp.marstoday_app.repository.model.MarstodayResponse
 import io.tapp.marstoday_app.repository.model.PhotosItem
 
@@ -18,5 +15,6 @@ abstract class MarstodayDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertMarstoday(photosItem: PhotosItem)
 
-
+    @Delete
+    abstract fun deleteMarstoday(photosItem: PhotosItem)
 }

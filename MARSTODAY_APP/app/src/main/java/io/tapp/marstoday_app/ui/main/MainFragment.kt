@@ -15,6 +15,8 @@ import io.tapp.marstoday_app.R
 import io.tapp.marstoday_app.repository.model.MarstodayResponse
 import io.tapp.marstoday_app.repository.model.PhotosItem
 import io.tapp.marstoday_app.ui.detail.DetailActivity
+import io.tapp.marstoday_app.ui.detail.DetailActivity.Companion.LOCAL_MARSTODAY
+import io.tapp.marstoday_app.ui.detail.DetailActivity.Companion.OBJECT_MARSTODAY
 import io.tapp.marstoday_app.ui.detail.DetailViewModel
 import io.tapp.marstoday_app.utils.CustomViewModelFactory
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -75,12 +77,12 @@ class MainFragment : Fragment(), CallbackItemClick {
             Intent(fragment, DetailActivity::class.java).apply {
 
                 arguments = Bundle().apply {
-                    putSerializable("OBJECT_MARSTODAY", photosItem)
+                    putSerializable(OBJECT_MARSTODAY, photosItem)
                 }
 
                 arguments?.let { args -> putExtras(args) }
 
-                putExtra("EXTRA_MARSTODAY", "LOCAL_MARSTODAY")
+                putExtra("EXTRA_MARSTODAY", LOCAL_MARSTODAY)
                 startActivity(this)
             }
         }

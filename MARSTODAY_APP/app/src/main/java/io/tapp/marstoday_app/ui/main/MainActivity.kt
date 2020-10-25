@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import io.tapp.marstoday_app.R
 import io.tapp.marstoday_app.ui.detail.DetailActivity
+import io.tapp.marstoday_app.ui.detail.DetailActivity.Companion.SERVER_MARSTODAY
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
 
             Intent(this, DetailActivity::class.java).apply {
-                putExtra("EXTRA_MARSTODAY", "SERVER_MARSTODAY")
+                putExtra("EXTRA_MARSTODAY", SERVER_MARSTODAY)
                 startActivity(this)
             }
 
