@@ -89,7 +89,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun getServerMarstoday() {
-        val sdf = SimpleDateFormat("2015-M-dd")
+        val sdf = SimpleDateFormat("2016-M-dd")
         val earthDate = sdf.format(Date())
 
         mViewModel.getMarstoday(earthDate, ApiKey.API_KEY, object : MarstodayService.CallbackResponse<MarstodayResponse> {
